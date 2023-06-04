@@ -16,16 +16,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Acer\OneDrive\Desktop\SoftUni\ASP.NET\Fundamentals\ASP.Net and Databases\ShoppingListApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Acer/OneDrive/Desktop/SoftUni/ASP.NET/Fundamentals/ASP.Net and Databases/ShoppingListApp/Views/All/All.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxsXEFsbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Acer/OneDrive/Desktop/SoftUni/ASP.NET/Fundamentals/ASP.Net and Databases/ShoppingListApp/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Acer/OneDrive/Desktop/SoftUni/ASP.NET/Fundamentals/ASP.Net and Databases/ShoppingListApp/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Acer/OneDrive/Desktop/SoftUni/ASP.NET/Fundamentals/ASP.Net and Databases/ShoppingListApp/Views/Product/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Acer/OneDrive/Desktop/SoftUni/ASP.NET/Fundamentals/ASP.Net and Databases/ShoppingListApp/Views/Product/All.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxBbGwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Acer/OneDrive/Desktop/SoftUni/ASP.NET/Fundamentals/ASP.Net and Databases/ShoppingListApp/Views/Product/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Acer/OneDrive/Desktop/SoftUni/ASP.NET/Fundamentals/ASP.Net and Databases/ShoppingListApp/Views/Shared/Error.cshtml]

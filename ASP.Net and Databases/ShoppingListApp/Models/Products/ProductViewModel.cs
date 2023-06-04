@@ -1,6 +1,6 @@
-﻿namespace ShoppingListApp.Data.Models
+﻿namespace ShoppingListApp.Models.Products
 {
-	public class Product
+	public class ProductViewModel
 	{
 		public int Id { get; set; }
 
