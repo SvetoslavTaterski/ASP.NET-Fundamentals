@@ -1,4 +1,6 @@
+using Library.Contracts;
 using Library.Data;
+using Library.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +11,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<LibraryDbContext>(options =>
 	options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddScoped<IBookService, BookService>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>
 		(options => options.SignIn.RequireConfirmedAccount = false)

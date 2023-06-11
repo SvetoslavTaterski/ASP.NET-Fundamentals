@@ -15,7 +15,9 @@ namespace Library.Data
 
         public DbSet<Category> Categories { get; set; } = null!;
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        public DbSet<IdentityUserBook> IdentityUserBooks { get; set; } = null!;
+
+		protected override void OnModelCreating(ModelBuilder builder)
         {
 	        builder.Entity<IdentityUserBook>()
 		        .HasKey(k => new
