@@ -1,0 +1,35 @@
+﻿namespace Library.Common
+{
+	public static class ValidationConstants
+	{
+		public class Book
+		{
+			public const int TitleMaxLength = 50;
+			public const int TitleMinLength = 10;
+		}
+
+		public class Author
+		{
+			public const int AuthorMaxLength = 50;
+			public const int AuthorMinLength = 5;
+		}
+
+		public class Description
+		{
+			public const int DescriptionMaxLength = 5000;
+			public const int DescriptionMinLength = 5;
+		}
+
+		public class Rating
+		{
+			public const double RatingMaxValue = 10.00;
+			public const double RatingMinValue = 0.00;
+		}
+
+		public class CategoryName
+		{
+			public const int NameMaxLength = 50;
+			public const int NameMinLength = 5;
+		}
+	}
+}
