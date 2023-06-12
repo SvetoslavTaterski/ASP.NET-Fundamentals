@@ -4,7 +4,9 @@ using Library.Data.Models;
 using Library.Models.Book;
 using Microsoft.CodeAnalysis.Operations;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using static Library.Common.ValidationConstants;
+using Book = Library.Data.Models.Book;
 
 namespace Library.Services
 {
@@ -83,6 +85,64 @@ namespace Library.Services
 					Rating = b.Rating,
 					CategoryId = b.CategoryId
 				}).FirstOrDefaultAsync();
+		}
+
+		public async Task<IdentityUserBook?> GetIdentityUserBookByIdAsync(int id)
+		{
+			return await _data.IdentityUserBooks
+				.Where(b => b.BookId == id)
+				.Select(b => new IdentityUserBook()
+				{
+					BookId = b.BookId,
+					Book = b.Book,
+					Collector = b.Collector,
+					CollectorId = b.CollectorId
+				}).FirstOrDefaultAsync();
+		}
+
+		public async Task RemoveBookFromCollectionAsync(string userId, IdentityUserBook book)
+		{
+			bool isBookExisting =
+				await _data.IdentityUserBooks
+					.AnyAsync(b => b.BookId == book.BookId && b.CollectorId == userId);
+
+			if (isBookExisting)
+			{
+				_data.IdentityUserBooks.Remove(book);
+				await _data.SaveChangesAsync();
+			}
+		}
+
+		public async Task AddNewBook(AddBookViewModel book)
+		{
+			Book newBook = new Book()
+			{
+				Title = book.Title,
+				Author = book.Author,
+				CategoryId = book.CategoryId,
+				Description = book.Description,
+				ImageUrl = book.Url,
+				Rating = decimal.Parse(book.Rating)
+			};
+
+			await _data.Books.AddAsync(newBook);
+			await _data.SaveChangesAsync();
+		}
+
+		public async Task<AddBookViewModel> GetNewAddBookModelCategories()
+		{
+			var categories = await _data.Categories.Select(c => new CategoryViewModel
+			{
+				Id = c.Id,
+				Name = c.Name,
+			}).ToListAsync();
+
+			var model = new AddBookViewModel()
+			{
+				Categories = categories
+			};
+
+			return model;
 		}
 	}
 }

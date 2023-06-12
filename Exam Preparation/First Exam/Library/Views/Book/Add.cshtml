@@ -1,7 +1,9 @@
-﻿@*@{
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model Library.Models.Book.AddBookViewModel
+@{
     ViewBag.Title = "Add Book";
 }
-
 <h2 class="text-center">@ViewBag.Title</h2>
 <hr />
 
@@ -53,4 +55,4 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-}*@
+}

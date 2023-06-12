@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using Library.Contracts;
+using Library.Models.Book;
 using Library.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +47,38 @@ namespace Library.Controllers
 			await _bookService.AddBookToCollectionAsync(userId, book);
 
 			return RedirectToAction(nameof(All));
+		}
+
+		public async Task<IActionResult> RemoveFromCollection(int id)
+		{
+			var book = await _bookService.GetIdentityUserBookByIdAsync(id);
+
+			if (book == null)
+			{
+				return RedirectToAction(nameof(All));
+			}
+
+			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+			await _bookService.RemoveBookFromCollectionAsync(userId, book);
+
+			return RedirectToAction("Mine", "Book");
+		}
+
+		[HttpGet]
+		public async Task<IActionResult> Add()
+		{
+			AddBookViewModel bookViewModel = await _bookService.GetNewAddBookModelCategories();
+
+			return View(bookViewModel);
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Add(AddBookViewModel model)
+		{
+			await _bookService.AddNewBook(model);
+
+			return RedirectToAction("All");
 		}
 	}
 }
